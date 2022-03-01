@@ -122,13 +122,13 @@ body {
   margin: 0px auto;
   margin-bottom: 5px;
   padding-top: 200px;
+  padding-bottom: 10px;
 }
 
 #main #cover #img-container img {
   width: 100%;
   height: auto;
   border: 3px solid #EB1761;
-  padding-bottom: 10px;
   border-radius: 50%;
   margin: 0px;
   padding: 0px;
