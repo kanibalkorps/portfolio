@@ -128,7 +128,7 @@ body {
                 width: 100%;
                 height: auto;
                 border: 3px solid $pink;
-
+                padding-bottom: 10px;
                 border-radius: 50%;
                 @include marg-pad;
             }
