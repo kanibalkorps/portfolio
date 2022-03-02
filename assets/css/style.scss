@@ -28,6 +28,22 @@ $color-change: linear-gradient($pink, $blue);
     width: $width;
     height: $height;
 }
+@mixin v-align($top, $bot){ /*20px 20px*/
+    padding-top: $top;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: $bot;
+}
+@keyframes levitate {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0px);}
+}
+@keyframes flyin {
+    0% {transform: translateX(-200px);}
+      //50% {transform: translateX(-50px);}
+      100% {transform: translateX(0px);}
+}
 * {
     font-family: 'Noto Sans', sans-serif;
     scroll-behavior: smooth;
@@ -49,7 +65,7 @@ body {
     border-bottom: 6px solid $pink;
     .logo {
         padding: 25px 20px 20px 50px;
-        padding-top: 25px;
+        animation: flyin 1s;
         a {
             @include link;
             @include marg-pad;
@@ -105,6 +121,15 @@ body {
         }
     }
 }
+.h2-line {
+    width: 50px;
+    height: 5px;
+    background-color: $pink;
+    border: none;
+    border-radius: 5px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
 #main {
     width: 100%;
     scroll-behavior: smooth;
@@ -137,7 +162,7 @@ body {
             margin: 0px auto;
             width: 500px;
             background-color: rgba(1,1,1,0.5);
-            border-radius: 20px;
+            border-radius: 10px;
             color: $white;
             text-align: center;
             border: 3px solid $pink;
@@ -177,24 +202,59 @@ body {
         padding-bottom: 20px;
         height: auto;
         background-color: #f6f6f6;
+        h2 {
+            @include v-align(20px, 20px);
+            position: relative;
+            font-size: 30px
+        }
         #about-container {
             @include center;
+            @include v-align(20px, 20px);
+            width: 90%;
+            p {
+                font-size: 22px;
+                text-align: justify;
+                @include marg-pad;
+                span {
+                    font-weight: bold;
+                    color: $blue;
+                }
+            }
         }
-        h2 {
-            margin-top: 70px;
-        }
-        p {
-            font-size: 20px;
-            text-align: justify;
-            span {
-                font-weight: bold;
-                color: $blue;
+        #education {
+            display: flex;
+             @include center;
+            width: 100%;
+            justify-content: space-evenly;
+            hr {
+                display: none;
+            }
+            .column {
+                width: 100%;
+                h3 {
+                    padding: 10px;
+                    padding-top: 0px;
+                    padding-bottom: 15px;
+                    text-align: center;
+                    color: $text;
+                    font-size: 25px;
+                    i {
+                        color: $blue;
+                    }
+                }
+            }
+            .left {
+                border-right: 1px solid $blue;
+            }
+            .right {
+                border-left: 1px solid $blue;
             }
         }
         #skills {
             width: 60%;
-            margin: 70px auto;
+            margin: 0px auto;
             padding: 0px;
+            @include v-align(20px, 20px);
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
@@ -261,7 +321,7 @@ body {
                 margin: 5px;
                 padding: 0px 0px 0px 0px;
                 background-color: $white;
-                border-radius: 20px;
+                border-radius: 10px;
                 figure {
                     width: 100%;
                     height: 170px; /*222*/
@@ -272,7 +332,7 @@ body {
                         height: auto;
                         display: block;
                         @include marg-pad;
-                        border-radius: 20px;
+                        border-radius: 10px;
                     }
                     figcaption {
                         font-size: 24px;
@@ -291,7 +351,7 @@ body {
                     opacity: 0;
                     transition: .3s ease;
                     background-color: $blue;
-                    border-radius: 20px;
+                    border-radius: 10px;
                     .overlay-text {
                         color: white;
                         font-size: 20px;
@@ -315,21 +375,21 @@ body {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            padding-top: 50px;
+            @include v-align(20px, 20px);
             .project {
                 position: relative;
                 width: 45%;
-                margin: 10px;
-                border-radius: 20px;
+                margin: 0px;
+                border-radius: 10px;
                 figure {
                     overflow: hidden;
                     @include marg-pad;
-                    border-radius: 20px;
+                    border-radius: 10px;
                     img {
                         width: 100%;
                         height: auto;
                         @include marg-pad;
-                        border-radius: 20px;
+                        border-radius: 10px;
                         transition: transform 0.15s ease-in-out 0s;
                         &:hover {
                             transform: scale(1.1);
@@ -338,7 +398,7 @@ body {
                 }
                 h3 {
                     color: $blue;
-                    font-size: 21px;
+                    font-size: 24px;
                 }
             }
         }
@@ -347,9 +407,7 @@ body {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            margin-top: 0px;
-            padding-top: 40px;
-            padding-bottom: 50px;
+            @include v-align(20px, 20px);
             .exp {
                 width: 30%;
                 p {
@@ -372,57 +430,98 @@ body {
         }
         #contact {
             @include center;
-            padding-top: 40px;
-            padding-bottom: 40px;
-            width: 70%;
-            #contact-form {
-                  @include center;
-                  @include marg-pad;
-                  width: 100%;
-                  table {
-                      tbody {
-                            @include marg-pad;
-                            @include center;
-                            width: 100%;
-                            tr {
-                                td {
-                                    padding: 0px 10px;
-                                    text-align: left;
-                                    label {
-                                        font-size: 20px;
-                                        font-weight: bold;
-                                        color: $blue;
-                                    }
-                                    input[type="text"], input[type="email"] {
-                                        width: 100%;
-                                        font-size: 16px;
-                                        border: 2px solid $pink;
-                                        border-radius: 10px;
-                                    }
-                                    textarea {
-                                        resize: none;
-                                        overflow-y: scroll;
-                                        width: 100%;
-                                        font-size: 16px;
-                                        border: 2px solid $pink;
-                                    }
-                                    button {
-                                        width: 80px;
-                                        margin: 0px auto;
-                                        padding: 0px 5px;
-                                        text-align: center;
-                                        font-size: 20px;
-                                        border: 2px solid $pink;
-                                        border-radius: 10px;
-                                        color: $blue;
-                                        font-weight: bold;
-                                        background-color: $white;
-                                    }
-                                }
-                            }
-                        }
+            @include v-align(20px, 20px);
+            width: 100%;
+            #form-contact {
+                width: 100%;
+                input {
+                    display: block;
+                    width: 80%;
+                    padding: 0px;
+                    border-radius: 3px;
+                    border: none;
+                    border-bottom: 2px solid $blue;
+                    background-color: #f6f6f6;
+                    padding-top: 10px;
+                    font-size: 18px;
+                }
+                textarea {
+                    width: 80%;
+                    resize: vertical;
+                    padding: 0px;
+                    margin-top: 10px;
+                    border: 2px solid $pink;
+                    border-radius: 5px;
+                    background-color: #f6f6f6;
+                    font-size: 18px;
+                }
+                #horizontal-inputs {
+                    width: 80%;
+                    margin: 0px auto;
+                    padding: 0px;
+                    display: flex;
+                    justify-content: space-between;
+                    .input-inline {
+                        width: 40%;
+                        margin: 0px;
                     }
-                }  
+                }
+                #email-title {
+                    width: 100%;
+                    display: block;
+                    input {
+                        margin: 0px auto;
+                    }
+                }
+                button {
+                    display: block;
+                    width: 80%;
+                    margin: 0px auto;
+                    border-radius: 5px;
+                    font-size: 18px;
+                    border: 2px solid $blue;
+                    transition: all 0.15s ease-in-out 0s;
+                    &:active {
+                        color: $blue;
+                        background-color: #fafafa;
+                    }
+                    i {
+                        font-size: 15px;
+                    }
+                } 
+            }      
+        }
+    }
+    #icon-top {
+        
+        display: flex;
+        align-items: center;
+        position: fixed;
+        right: 3%;
+        bottom: 3%;
+        width: 100px;
+        height: 100px;
+        p {
+            padding: 20px;
+            border-radius: 50%;
+            border: 2px solid $blue;
+            font-size: 30px;
+            height: 30px;
+            width: 30px;
+            margin-top: -4px;
+            text-align: center;
+            background-color: #f6f6f6;
+            &:hover {
+                a {
+                    color: $pink-hover;
+                    i {
+                        animation: levitate 2s infinite;
+                    }
+                } 
+            }
+            a {
+                color: $pink;
+            }
         }
     }
 }
@@ -438,6 +537,9 @@ footer {
         color: $text;
         #h2-div {
             padding: 10px 50px;
+            h2 {
+                color: #929292;
+            }
         }
         #icons {
             padding: 10px 50px;
@@ -500,11 +602,27 @@ footer {
             }
         }
         .info {
-            p {
-                font-size: 17px;
+            h2 {
+                font-size: 27px;
+            }
+            #about-container {
+                p {
+                    font-size: 18px;
+                }
+            }
+            #education {
+                .column {
+                    h3 {
+                        font-size: 22px;
+                    }
+                }
             }
             #skills {
                 width: 80%;
+                padding-top: 20px;
+                margin-top: 0px;
+                padding-bottom: 20px;
+                margin-bottom: 0px;
                 .skill {
                     width: 144px;
                     height: 178px;
@@ -519,6 +637,8 @@ footer {
                 }
             }
             #projects {
+                padding-top: 10px;
+                padding-bottom: 20px;
                 .project {
                     
                     h3 {
@@ -528,23 +648,22 @@ footer {
             }
             #experience {
                 width: 80%;
+                padding-top: 20px;
+                margin-top: 0px;
+                padding-bottom: 20px;
             }
             #contact {
                 width: 80%;
                 padding-bottom: 20px;
-                #contact-form {
-                    table {
-                        tr {
-                            td {
-                                label {
-                                    font-size: 18px;
-                                }
-                                button {
-                                    font-size: 18px;
-                                }
-                            }
-                        }
-                        
+                #form-contact {
+                    input {
+                        font-size: 17px;
+                    }
+                    textarea {
+                        font-size: 17px;
+                    }
+                    button {
+                        font-size: 17px;
                     }
                 }
             }
@@ -593,9 +712,19 @@ footer {
             }
         }
         .info {
+            h2 {
+                font-size: 25px;
+            }
             #about-container {
                 p {
                     text-align: justify;
+                }
+            }
+            #education {
+                .column {
+                    h3 {
+                        font-size: 20px;
+                    }
                 }
             }
             #projects {
@@ -620,22 +749,19 @@ footer {
                 }
             }
             #contact {
-                width: 90%;
-                #contact-form {
-                    table {
-                        tbody {
-                            tr {
-                                td {
-                                    label {
-                                        font-size: 18px;
-                                    }
-                                    button {
-                                        width: 80px;
-                                        font-size: 18px;
-                                    }
-                                }
-                            }
-                        } 
+                width: 100%;
+                #form-contact {
+                    input {
+                        font-size: 15px;
+                    }
+                    textarea {
+                        font-size: 15px;
+                    }
+                    button {
+                        font-size: 15px;
+                        i {
+                            font-size: 13px;
+                        }
                     }
                 }
             }
@@ -691,14 +817,32 @@ footer {
             margin-top: 20px;
             padding-top: 5px;
             h2 {
-                margin-top: 50px;
+                @include v-align(40px, 20px);
+                font-size: 22px;
             }
             #about-container {
                 width: 95%;
                 p {
                     text-align: justify;
-                    font-size: 18px;
+                    font-size: 16px;
                 }
+            }
+            #education {
+                display: block;
+                hr {
+                    display: block;
+                    width: 80%;
+                    border: none;
+                    height: 2px;
+                    background-color: $blue;
+                }
+                .column {
+                    border: none;
+                    h3 {
+                        font-size: 18px;
+                    }
+                }
+                
             }
             #skills {
                 width: 100%;
@@ -719,29 +863,6 @@ footer {
                     margin-top: 20px;
                     p {
                         font-size: 80px;
-                    }
-                }
-            }
-            #contact {
-                #contact-form {
-                    table {
-                        tbody {
-                            display: inline-block;
-                            tr {
-                                display: flex;
-                                flex-wrap: wrap;
-                                td {
-                                    display: block;
-                                    padding: 5px;
-                                    input[type="text"], input[type="email"] {
-                                        width: 300px;
-                                    }
-                                    .title {
-                                        display: none;
-                                    }
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -788,7 +909,7 @@ footer {
         .info {
             #about-container {
                 p {
-                    font-size: 17px;
+                    font-size: 16px;
                 }
             }
             #skills {
@@ -803,20 +924,17 @@ footer {
                 }
             }
             #contact {
-                width: 90%;
-                #contact-form {
-                    table {
-                        tbody {
-                            tr {
-                                td {
-                                    input[type="text"], input[type="email"] {
-                                        width: 250px;
-                                    }
-                                    textarea {
-                                        width: 250px;
-                                    }
-                                }
-                            }
+                #form-contact {
+                    input {
+                        font-size: 13px;
+                    }
+                    textarea {
+                         font-size: 13px;
+                    }
+                    button {
+                        font-size: 13px;
+                        i {
+                            font-size: 10px;
                         }
                     }
                 }
@@ -827,13 +945,13 @@ footer {
         #foot-container {
             #h2-div {
                 h2 {
-                    font-size: 16px;
+                    font-size: 12px;
                 }
             }
             #icons {
                 justify-content: space-around;
                 a {
-                    font-size: 14px;
+                    font-size: 13px;
                 }
             }
         }

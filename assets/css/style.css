@@ -1,4 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@-webkit-keyframes levitate {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+@keyframes levitate {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes flyin {
+  0% {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes flyin {
+  0% {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
 * {
   font-family: 'Noto Sans', sans-serif;
   scroll-behavior: smooth;
@@ -29,7 +80,8 @@ body {
 
 #header .logo {
   padding: 25px 20px 20px 50px;
-  padding-top: 25px;
+  -webkit-animation: flyin 1s;
+          animation: flyin 1s;
 }
 
 #header .logo a {
@@ -101,6 +153,16 @@ body {
           transform: scaleX(1);
 }
 
+.h2-line {
+  width: 50px;
+  height: 5px;
+  background-color: #EB1761;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
 #main {
   width: 100%;
   scroll-behavior: smooth;
@@ -138,7 +200,7 @@ body {
   margin: 0px auto;
   width: 500px;
   background-color: rgba(1, 1, 1, 0.5);
-  border-radius: 20px;
+  border-radius: 10px;
   color: #ffffff;
   text-align: center;
   border: 3px solid #EB1761;
@@ -191,30 +253,91 @@ body {
   background-color: #f6f6f6;
 }
 
+#main .info h2 {
+  /*20px 20px*/
+  padding-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+  position: relative;
+  font-size: 30px;
+}
+
 #main .info #about-container {
   width: 70%;
   margin: 0px auto;
   text-align: center;
+  /*20px 20px*/
+  padding-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+  width: 90%;
 }
 
-#main .info h2 {
-  margin-top: 70px;
-}
-
-#main .info p {
-  font-size: 20px;
+#main .info #about-container p {
+  font-size: 22px;
   text-align: justify;
+  margin: 0px;
+  padding: 0px;
 }
 
-#main .info p span {
+#main .info #about-container p span {
   font-weight: bold;
   color: #2b6bff;
 }
 
+#main .info #education {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  margin: 0px auto;
+  text-align: center;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#main .info #education hr {
+  display: none;
+}
+
+#main .info #education .column {
+  width: 100%;
+}
+
+#main .info #education .column h3 {
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  text-align: center;
+  color: #3d4451;
+  font-size: 25px;
+}
+
+#main .info #education .column h3 i {
+  color: #2b6bff;
+}
+
+#main .info #education .left {
+  border-right: 1px solid #2b6bff;
+}
+
+#main .info #education .right {
+  border-left: 1px solid #2b6bff;
+}
+
 #main .info #skills {
   width: 60%;
-  margin: 70px auto;
+  margin: 0px auto;
   padding: 0px;
+  /*20px 20px*/
+  padding-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,7 +380,7 @@ body {
   margin: 5px;
   padding: 0px 0px 0px 0px;
   background-color: #ffffff;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #main .info #skills .skill figure {
@@ -274,7 +397,7 @@ body {
   display: block;
   margin: 0px;
   padding: 0px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #main .info #skills .skill figure figcaption {
@@ -295,7 +418,7 @@ body {
   -webkit-transition: .3s ease;
   transition: .3s ease;
   background-color: #2b6bff;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #main .info #skills .skill .overlay .overlay-text {
@@ -323,21 +446,25 @@ body {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding-top: 50px;
+  /*20px 20px*/
+  padding-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
 }
 
 #main .info #projects .project {
   position: relative;
   width: 45%;
-  margin: 10px;
-  border-radius: 20px;
+  margin: 0px;
+  border-radius: 10px;
 }
 
 #main .info #projects .project figure {
   overflow: hidden;
   margin: 0px;
   padding: 0px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #main .info #projects .project figure img {
@@ -345,7 +472,7 @@ body {
   height: auto;
   margin: 0px;
   padding: 0px;
-  border-radius: 20px;
+  border-radius: 10px;
   -webkit-transition: -webkit-transform 0.15s ease-in-out 0s;
   transition: -webkit-transform 0.15s ease-in-out 0s;
   transition: transform 0.15s ease-in-out 0s;
@@ -359,7 +486,7 @@ body {
 
 #main .info #projects .project h3 {
   color: #2b6bff;
-  font-size: 21px;
+  font-size: 24px;
 }
 
 #main .info #experience {
@@ -373,9 +500,11 @@ body {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  /*20px 20px*/
+  padding-top: 20px;
   margin-top: 0px;
-  padding-top: 40px;
-  padding-bottom: 50px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
 }
 
 #main .info #experience .exp {
@@ -407,66 +536,124 @@ body {
   width: 70%;
   margin: 0px auto;
   text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  width: 70%;
+  /*20px 20px*/
+  padding-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+  width: 100%;
 }
 
-#main .info #contact #contact-form {
-  width: 70%;
-  margin: 0px auto;
-  text-align: center;
-  margin: 0px;
+#main .info #contact #form-contact {
+  width: 100%;
+}
+
+#main .info #contact #form-contact input {
+  display: block;
+  width: 80%;
   padding: 0px;
-  width: 100%;
+  border-radius: 3px;
+  border: none;
+  border-bottom: 2px solid #2b6bff;
+  background-color: #f6f6f6;
+  padding-top: 10px;
+  font-size: 18px;
 }
 
-#main .info #contact #contact-form table tbody {
-  margin: 0px;
+#main .info #contact #form-contact textarea {
+  width: 80%;
+  resize: vertical;
   padding: 0px;
-  width: 70%;
+  margin-top: 10px;
+  border: 2px solid #EB1761;
+  border-radius: 5px;
+  background-color: #f6f6f6;
+  font-size: 18px;
+}
+
+#main .info #contact #form-contact #horizontal-inputs {
+  width: 80%;
   margin: 0px auto;
-  text-align: center;
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#main .info #contact #form-contact #horizontal-inputs .input-inline {
+  width: 40%;
+  margin: 0px;
+}
+
+#main .info #contact #form-contact #email-title {
   width: 100%;
+  display: block;
 }
 
-#main .info #contact #contact-form table tbody tr td {
-  padding: 0px 10px;
-  text-align: left;
-}
-
-#main .info #contact #contact-form table tbody tr td label {
-  font-size: 20px;
-  font-weight: bold;
-  color: #2b6bff;
-}
-
-#main .info #contact #contact-form table tbody tr td input[type="text"], #main .info #contact #contact-form table tbody tr td input[type="email"] {
-  width: 100%;
-  font-size: 16px;
-  border: 2px solid #EB1761;
-  border-radius: 10px;
-}
-
-#main .info #contact #contact-form table tbody tr td textarea {
-  resize: none;
-  overflow-y: scroll;
-  width: 100%;
-  font-size: 16px;
-  border: 2px solid #EB1761;
-}
-
-#main .info #contact #contact-form table tbody tr td button {
-  width: 80px;
+#main .info #contact #form-contact #email-title input {
   margin: 0px auto;
-  padding: 0px 5px;
-  text-align: center;
-  font-size: 20px;
-  border: 2px solid #EB1761;
-  border-radius: 10px;
+}
+
+#main .info #contact #form-contact button {
+  display: block;
+  width: 80%;
+  margin: 0px auto;
+  border-radius: 5px;
+  font-size: 18px;
+  border: 2px solid #2b6bff;
+  -webkit-transition: all 0.15s ease-in-out 0s;
+  transition: all 0.15s ease-in-out 0s;
+}
+
+#main .info #contact #form-contact button:active {
   color: #2b6bff;
-  font-weight: bold;
-  background-color: #ffffff;
+  background-color: #fafafa;
+}
+
+#main .info #contact #form-contact button i {
+  font-size: 15px;
+}
+
+#main #icon-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  width: 100px;
+  height: 100px;
+}
+
+#main #icon-top p {
+  padding: 20px;
+  border-radius: 50%;
+  border: 2px solid #2b6bff;
+  font-size: 30px;
+  height: 30px;
+  width: 30px;
+  margin-top: -4px;
+  text-align: center;
+  background-color: #f6f6f6;
+}
+
+#main #icon-top p:hover a {
+  color: #f53e7e;
+}
+
+#main #icon-top p:hover a i {
+  -webkit-animation: levitate 2s infinite;
+          animation: levitate 2s infinite;
+}
+
+#main #icon-top p a {
+  color: #EB1761;
 }
 
 footer {
@@ -489,6 +676,10 @@ footer #foot-container {
 
 footer #foot-container #h2-div {
   padding: 10px 50px;
+}
+
+footer #foot-container #h2-div h2 {
+  color: #929292;
 }
 
 footer #foot-container #icons {
@@ -551,11 +742,21 @@ footer #foot-container #icons a i {
   #main #cover #cover-text h3 {
     font-size: 17px;
   }
-  #main .info p {
-    font-size: 17px;
+  #main .info h2 {
+    font-size: 27px;
+  }
+  #main .info #about-container p {
+    font-size: 18px;
+  }
+  #main .info #education .column h3 {
+    font-size: 22px;
   }
   #main .info #skills {
     width: 80%;
+    padding-top: 20px;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
   }
   #main .info #skills .skill {
     width: 144px;
@@ -567,21 +768,31 @@ footer #foot-container #icons a i {
   #main .info #skills .skill figure figcaption {
     font-size: 20px;
   }
+  #main .info #projects {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
   #main .info #projects .project h3 {
     font-size: 19px;
   }
   #main .info #experience {
     width: 80%;
+    padding-top: 20px;
+    margin-top: 0px;
+    padding-bottom: 20px;
   }
   #main .info #contact {
     width: 80%;
     padding-bottom: 20px;
   }
-  #main .info #contact #contact-form table tr td label {
-    font-size: 18px;
+  #main .info #contact #form-contact input {
+    font-size: 17px;
   }
-  #main .info #contact #contact-form table tr td button {
-    font-size: 18px;
+  #main .info #contact #form-contact textarea {
+    font-size: 17px;
+  }
+  #main .info #contact #form-contact button {
+    font-size: 17px;
   }
 }
 
@@ -628,8 +839,14 @@ footer #foot-container #icons a i {
   #main #cover #cover-text h3 {
     font-size: 15px;
   }
+  #main .info h2 {
+    font-size: 25px;
+  }
   #main .info #about-container p {
     text-align: justify;
+  }
+  #main .info #education .column h3 {
+    font-size: 20px;
   }
   #main .info #projects {
     padding-top: 20px;
@@ -651,14 +868,19 @@ footer #foot-container #icons a i {
     font-size: 15px;
   }
   #main .info #contact {
-    width: 90%;
+    width: 100%;
   }
-  #main .info #contact #contact-form table tbody tr td label {
-    font-size: 18px;
+  #main .info #contact #form-contact input {
+    font-size: 15px;
   }
-  #main .info #contact #contact-form table tbody tr td button {
-    width: 80px;
-    font-size: 18px;
+  #main .info #contact #form-contact textarea {
+    font-size: 15px;
+  }
+  #main .info #contact #form-contact button {
+    font-size: 15px;
+  }
+  #main .info #contact #form-contact button i {
+    font-size: 13px;
   }
   footer #foot-container #h2-div h2 {
     font-size: 18px;
@@ -702,13 +924,34 @@ footer #foot-container #icons a i {
     padding-top: 5px;
   }
   #main .info h2 {
-    margin-top: 50px;
+    /*20px 20px*/
+    padding-top: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+    font-size: 22px;
   }
   #main .info #about-container {
     width: 95%;
   }
   #main .info #about-container p {
     text-align: justify;
+    font-size: 16px;
+  }
+  #main .info #education {
+    display: block;
+  }
+  #main .info #education hr {
+    display: block;
+    width: 80%;
+    border: none;
+    height: 2px;
+    background-color: #2b6bff;
+  }
+  #main .info #education .column {
+    border: none;
+  }
+  #main .info #education .column h3 {
     font-size: 18px;
   }
   #main .info #skills {
@@ -729,26 +972,6 @@ footer #foot-container #icons a i {
   }
   #main .info #experience .exp p {
     font-size: 80px;
-  }
-  #main .info #contact #contact-form table tbody {
-    display: inline-block;
-  }
-  #main .info #contact #contact-form table tbody tr {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  #main .info #contact #contact-form table tbody tr td {
-    display: block;
-    padding: 5px;
-  }
-  #main .info #contact #contact-form table tbody tr td input[type="text"], #main .info #contact #contact-form table tbody tr td input[type="email"] {
-    width: 300px;
-  }
-  #main .info #contact #contact-form table tbody tr td .title {
-    display: none;
   }
   footer {
     margin-top: 20px;
@@ -780,7 +1003,7 @@ footer #foot-container #icons a i {
     font-size: 14px;
   }
   #main .info #about-container p {
-    font-size: 17px;
+    font-size: 16px;
   }
   #main .info #skills {
     -webkit-box-pack: center;
@@ -790,24 +1013,27 @@ footer #foot-container #icons a i {
   #main .info #projects .project h3 {
     font-size: 17px;
   }
-  #main .info #contact {
-    width: 90%;
+  #main .info #contact #form-contact input {
+    font-size: 13px;
   }
-  #main .info #contact #contact-form table tbody tr td input[type="text"], #main .info #contact #contact-form table tbody tr td input[type="email"] {
-    width: 250px;
+  #main .info #contact #form-contact textarea {
+    font-size: 13px;
   }
-  #main .info #contact #contact-form table tbody tr td textarea {
-    width: 250px;
+  #main .info #contact #form-contact button {
+    font-size: 13px;
+  }
+  #main .info #contact #form-contact button i {
+    font-size: 10px;
   }
   footer #foot-container #h2-div h2 {
-    font-size: 16px;
+    font-size: 12px;
   }
   footer #foot-container #icons {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
   footer #foot-container #icons a {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 /*# sourceMappingURL=style.css.map */

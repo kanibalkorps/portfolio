@@ -26,9 +26,10 @@
         <nav id="h-nav">
             <ul>
                 <li><a href="#about-container">About Me</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -41,18 +42,39 @@
                 <img src="assets/img/moja-slika-200x200.jpg" alt="Birišić Martin mala slika">
             </div>
             <div id="cover-text">
-                <h1>Hi, I'm Martin</h1>
+                <h1>Hi, I'm Martin.</h1>
                 <h2>A professional web developer.</h2>
                 <h3><a href="mailto:martin.birisic.22.21@ict.edu.rs">martin&#46;birisic&#46;22&#46;21&#64;ict&#46;edu&#46;rs</a></h3>
             </div>
         </div>
         <!-- about me -->
         <div class="info">
+            <h2>This is me</h2>
+            <hr class="h2-line"/>
             <div id="about-container">
-                <h2>This is me</h2>
                 <p> Hi, my name's Martin Birišić and I'm a professional web developer and designer with <span> 4+ years </span> of experience in this field. I specialize in <span> front-end </span> development. I am a competent and creative engineer, offering my services in web programming, photoshop, desktop programming, data bases and many more in multiple languages (<span>English, Serbian</span>). Working with others has always been on my strong side, so getting along with colleagues and clients won't be a problem. I always <span> deliver projects on time</span>, and I am always open for giving advices to newer colleagues.</p>
             </div>
+        </div>
+        <!-- education -->
+        <div class="info">
+            <h2>Schools I attended</h2>
+            <hr class="h2-line"/>
+            <div id="education">
+                <div class="column left">
+                    <h3>2017 - 2021 <i class="fa-solid fa-circle-check"></i></h3>
+                    <h3>High school of Electrical Engineering "Zaječar", Zaječar</h3>
+                </div>
+                <hr/>
+                <div class="column right">
+                    <h3>2021 - ONGOING <i class="fa-solid fa-hourglass"></i></h3>
+                    <h3>ICT College of Aplied studies, Belgrade</h3>
+                </div>
+            </div>
+        </div>
+        <!-- skills -->
+        <div class="info">
             <h2>Tools I'm familiar with</h2>
+            <hr class="h2-line"/>
             <div id="skills">
                 <div class="skill">
                     <figure>
@@ -110,9 +132,20 @@
                 </div>
             </div>
         </div>
+        <!-- experience -->
+        <div class="info">
+            <h2>Experience acquired so far</h2>
+            <hr class="h2-line"/>
+            <div id="experience">
+                <div class="exp"><p><i class="fa-regular fa-calendar-days"></i></p><h3 class="h3-special">4+</h3><h3>years</h3></div>
+                <div class="exp"><p><i class="fa-solid fa-list-check"></i></p><h3 class="h3-special">100+</h3><h3>projects</h3></div>
+                <div class="exp"><p><i class="fa-solid fa-users"></i></p><h3 class="h3-special">50+</h3><h3>happy clients</h3></div>
+            </div>
+        </div>
         <!-- projects -->
         <div class="info">
             <h2>Examples of my work</h2>
+            <hr class="h2-line"/>
             <div id="projects">
                 <div class="project">
                     <h3>Udruženje književnika "Revolt"</h3>
@@ -120,7 +153,7 @@
                 </div>
                 <div class="project">
                     <h3>Martin Birišić portfolio</h3>
-                    <figure><img src="assets/img/project1-400x190.png" alt="drugi projekat"/></figure>
+                    <figure><img src="assets/img/project1-400x190.PNG" alt="drugi projekat"/></figure>
                 </div>
                 <div class="project">
                     <h3>Freepik</h3>
@@ -132,32 +165,33 @@
                 </div>
             </div>
         </div>
-        <!-- experience & contact -->
+        <!-- contact -->
         <div class="info">
-            <h2>Experience acquired so far</h2>
-            <div id="experience">
-                <div class="exp"><p><i class="fa-regular fa-calendar-days"></i></p><h3 class="h3-special">4+</h3><h3>years of experience</h3></div>
-                <div class="exp"><p><i class="fa-solid fa-list-check"></i></p><h3 class="h3-special">100+</h3><h3>projects and assignments</h3></div>
-                <div class="exp"><p><i class="fa-solid fa-users"></i></p><h3 class="h3-special">50+</h3><h3>happy clients</h3></div>
-            </div>
-            <!-- contact -->
             <h2>Let's get in touch!</h2>
+            <hr class="h2-line"/>
             <div id="contact">
-                <form action="sendData.php" id="contact-form" name="contact-form">
-                    <table>
-                        <tbody>
-                            <tr> <td><label for="contact-form">Name</label></td> <td><input type="text" placeholder="John" required="required"></td> <td><input type="text" placeholder="Title" maxlength="20" class="title"></td> 
-                            </tr>
-                            <tr><td><label for="contact-form">Last name</label></td> <td><input type="text" placeholder="Doe" required="required"></td><td rowspan="2"> <textarea name="contact-message" id="contact-message" cols="30" rows="5" placeholder="My message..."></textarea></td>
-                            </tr>
-                            <tr><td><label for="contact-form">Email</label></td> <td><input type="email" placeholder="johndoe&#64;gmail&#46;com" required="required"></td>
-                            </tr>
-                            <tr><td colspan="3"><button>Send</button></td></tr>
-                        </tbody>
-                    </table>
+                <form action="sendData2.php" id="form-contact" name="form-contact">
+                    <div id="horizontal-inputs">
+                        <input type="text" name="first-name" class="input-inline" placeholder="First name:" required="required"/>
+                        <input type="text" name="last-name" class="input-inline" placeholder="Last name:" required="required"/>
+                    </div>
+                    <div id="email-title">
+                        <input type="email" name="email" placeholder="Email:" required="required"/>
+                        <input type="text" name="title" placeholder="Title"/>
+                    </div>
+                    <textarea name="textarea" id="textarea" cols="30" rows="10" placeholder="My message..."></textarea>
+                    <button>Send<i class="fa-solid fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
+        <!-- top arrow -->
+        <div id="icon-top">
+            <p>
+              <a href="#">
+                <i class="fa-solid fa-arrow-up"></i>
+              </a>
+            </p>
+          </div>
     </div>
     <!-- footer -->
     <footer>
